@@ -20,6 +20,7 @@ const jwt = require('jsonwebtoken');
 const Router = require('koa-router');
 
 const sslPath = process.env.SSL_PATH || './app/ssl';
+console.log(`sslPath: ${sslPath}`);
 const ssl = {
     key: fs.readFileSync(`${sslPath}/privkey.pem`, 'utf8'),
     cert: fs.readFileSync(`${sslPath}/fullchain.pem`, 'utf8')
