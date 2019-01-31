@@ -1,50 +1,41 @@
 <template>
   <div id="app">
-    <HelloWorld msg="上海伦之信息科技有限公司"/>
-    <el-tabs type="border-card" class="container">
-      <el-tab-pane label="关于我们">
-        <el-collapse v-model="activeName" accordion>
-          <el-collapse-item title="公司介绍" name="1">
-            <div>上海伦之信息科技有限公司成立于2018年05月19日，坐落于上海浦东张江科技园区，主营手机网络游戏的开发和运营。未来计划更名为上海勿忘我信息科技有限公司。</div>
-          </el-collapse-item>
-          <el-collapse-item title="品牌介绍" name="2">
-            <div>“勿忘我游戏”以全新品牌闪亮登场，以“不氪不肝还好玩”的理念，耕耘公平竞技细分游戏市场，打造公平竞技游戏品牌，让广大玩家放心玩游戏。</div>
-          </el-collapse-item>
-          <el-collapse-item title="主要产品介绍" name="3">
-            <div>勿忘我游戏首推“英雄竞技场”手机网络游戏，该游戏是一款3D战术竞技游戏合集，全国同服，Android和iOS同服。英雄竞技场手游已开发完毕，待公司各项手续齐全，将上架Taptap和App Store，供广大玩家下载。</div>
-          </el-collapse-item>
-          <el-collapse-item title="联系我们" name="4">
-            <div>客户服务：kf@mail.wwwgames.cn</div>
-            <div>商务合作：business@mail.wwwgames.cn</div>
-          </el-collapse-item>
-        </el-collapse>
-      </el-tab-pane>
-      <el-tab-pane label="招聘英才">暂无招聘信息</el-tab-pane>
-    </el-tabs>
+    <template>
+      <router-view></router-view>
+    </template>
 
-    <!--<hr>-->
-    <div class="footer">
-      <!--<hr>-->
-      <a href="businessLicence.html">营业执照</a>
-      <a href="domainLicence.html">域名证书</a>
-      <a href="http://www.miitbeian.gov.cn">沪ICP备18044920号</a>
-    </div>
+
+    <!--<HelloWorld msg="上海伦之信息科技有限公司"/>-->
+    <!--<el-tabs type="border-card" class="container">-->
+      <!--<el-tab-pane label="关于我们">-->
+        <!--<el-collapse v-model="activeName" accordion>-->
+          <!--<el-collapse-item title="公司介绍" name="1">-->
+            <!--<div>上海伦之信息科技有限公司成立于2018年05月19日，坐落于上海浦东张江科技园区，主营手机网络游戏的开发和运营。未来计划更名为上海勿忘我信息科技有限公司。</div>-->
+          <!--</el-collapse-item>-->
+          <!--<el-collapse-item title="品牌介绍" name="2">-->
+            <!--<div>“勿忘我游戏”以全新品牌闪亮登场，以“不氪不肝还好玩”的理念，耕耘公平竞技细分游戏市场，打造公平竞技游戏品牌，让广大玩家放心玩游戏。</div>-->
+          <!--</el-collapse-item>-->
+          <!--<el-collapse-item title="主要产品介绍" name="3">-->
+            <!--<div>勿忘我游戏首推“英雄竞技场”手机网络游戏，该游戏是一款3D战术竞技游戏合集，全国同服，Android和iOS同服。英雄竞技场手游已开发完毕，待公司各项手续齐全，将上架Taptap和App Store，供广大玩家下载。</div>-->
+          <!--</el-collapse-item>-->
+          <!--<el-collapse-item title="联系我们" name="4">-->
+            <!--<div>客户服务：kf@mail.wwwgames.cn</div>-->
+            <!--<div>商务合作：business@mail.wwwgames.cn</div>-->
+          <!--</el-collapse-item>-->
+        <!--</el-collapse>-->
+      <!--</el-tab-pane>-->
+      <!--<el-tab-pane label="招聘英才">暂无招聘信息</el-tab-pane>-->
+    <!--</el-tabs>-->
+
+    <!--<div class="footer">-->
+
+    <!--</div>-->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  },
-  data() {
-    return {
-      activeName: '1'
-    };
-  }
+  name: 'app'
 }
 </script>
 
@@ -55,28 +46,7 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    position: relative;
+    /*position: relative;*/
     /*margin-top: 60px;*/
-  }
-
-  .container {
-    /*height: 100%;*/
-    margin: 20px;
-    text-align: left;
-  }
-
-  .footer{
-    height: 100px;
-    width: 100%;
-    padding: 20px;
-    position: absolute;
-    bottom: 0;
-    background-color: #eee;
-    /*position: fixed;*/
-    /*bottom: 0;*/
-  }
-
-  a {
-    margin-right: 20px;
   }
 </style>
