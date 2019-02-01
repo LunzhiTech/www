@@ -26,8 +26,6 @@
             <p>上海伦之信息科技有限公司 浦东新区（县）泥城镇云汉路979号2楼</p>
             <p>本公司游戏产品适合18岁以上成年人使用（<router-link tag='a' style="color: red" :to="'/parents'" >家长监护</router-link>）</p>
             <p><a href="http://www.miitbeian.gov.cn">沪ICP备18044920号</a> | 客服电话：(+86) 16602160709</p>
-            <p><a href="businessLicence.html">营业执照</a> | <a href="domainLicence.html">域名证书</a></p>
-            <!--<a href="parent" style="color: red">家长监护</a>-->
         </el-footer>
     </el-container>
 </template>
