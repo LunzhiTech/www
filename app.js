@@ -10,6 +10,7 @@
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
+const path = require('path');
 const Koa = require('koa');
 const favicon = require('koa-favicon');
 const serve = require('koa-static');
@@ -18,17 +19,16 @@ const bodyParser = require('koa-bodyparser');
 const session = require('koa-session');
 const Router = require('koa-router');
 
-const sslPath = process.env.SSL_PATH || './app/ssl';
-// console.log(`sslPath: ${sslPath}`);
+const sslPath = process.env.SSL_PATH || path.join(__dirname, 'app', 'ssl');
 const ssl = {
-    key: fs.readFileSync(`${sslPath}/privkey.pem`, 'utf8'),
-    cert: fs.readFileSync(`${sslPath}/fullchain.pem`, 'utf8')
+    key: fs.readFileSync(path.join(sslPath, 'privkey.pem'), 'utf8'),
+    cert: fs.readFileSync(path.join(sslPath, 'fullchain.pem'), 'utf8')
 };
 
 const app = new Koa();
 app.use(logger());
-app.use(favicon('./dist/favicon.ico'));
-app.use(serve('./dist'));
+app.use(favicon(path.join(__dirname, 'dist', 'favicon.ico')));
+app.use(serve(path.join(__dirname, 'dist')));
 app.use(bodyParser());
 app.keys = ['ljl19920707'];
 app.use(session(app));
