@@ -27,3 +27,13 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+#### host port (30000-32767)
+
+- 300** is www
+- 301** is xddj
+- 302** is grab
+
+In grab:
+
+- 30001 is www
