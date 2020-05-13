@@ -6,8 +6,6 @@
  * ***************************************** */
 
 const http = require('http');
-// const https = require('https');
-// const fs = require('fs');
 const path = require('path');
 const Koa = require('koa');
 const favicon = require('koa-favicon');
@@ -16,14 +14,8 @@ const logger = require('koa-logger');
 const bodyParser = require('koa-bodyparser');
 const session = require('koa-session');
 const Router = require('@koa/router');
-// const sslJson = require('./configs/ssl.json');
 
 async function main() {
-    // const sslConf = {
-    //     key: fs.readFileSync(process.env.WWW_SSL_KEY_PATH || path.join(__dirname, sslJson.key), 'utf8'),
-    //     cert: fs.readFileSync(process.env.WWW_SSL_CERT_PATH || path.join(__dirname, sslJson.cert), 'utf8')
-    // }
-
     const app = new Koa();
     app.use(logger());
     app.use(favicon(path.join(__dirname, 'dist', 'favicon.ico')));
@@ -76,21 +68,17 @@ async function main() {
         }
     });
 
-    const httpServer = http.createServer(app.callback());
-    httpServer.listen(80, () => {
+    // By use ingress in kubernetes, you should create http server in port 80 and 443, and don't need to create https server.
+    const server80 = http.createServer(app.callback());
+    server80.listen(80, () => {
         // eslint-disable-next-line no-console
         console.log(`[WWW] Http listening on port 80.`);
     });
-    const httpsServer = http.createServer(app.callback());
-    httpsServer.listen(443, () => {
+    const server443 = http.createServer(app.callback());
+    server443.listen(443, () => {
         // eslint-disable-next-line no-console
-        console.log(`[WWW] Https listening on port 443.`);
+        console.log(`[WWW] Http listening on port 443.`);
     });
-    // const httpsServer = https.createServer(sslConf, app.callback());
-    // httpsServer.listen(443, () => {
-    //     // eslint-disable-next-line no-console
-    //     console.log(`[WWW] Https listening on port 443.`);
-    // });
 }
 
 main().catch((err) => {
