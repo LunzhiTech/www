@@ -20,6 +20,7 @@ async function main() {
     app.use(logger());
     app.use(favicon(path.join(__dirname, 'dist', 'favicon.ico')));
     app.use(serve(path.join(__dirname, 'dist')));
+    app.use(serve(path.join(__dirname, '.well-known')));
     app.use(bodyParser());
     app.keys = ['ljl19920707'];
     app.use(session(app));

@@ -1,0 +1,9 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [{ 
+            "appID": "L77KSHL6HJ.cn.wwwgames.xddj",
+            "paths": ["/app/*"]
+        }]
+    }
+}
